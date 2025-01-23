@@ -1,0 +1,128 @@
+// Container Styling
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Hero Section
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  border-radius: 1rem;
+
+  .heroContent {
+    max-width: 600px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .heroButton {
+      padding: 0.75rem 1.5rem;
+      background-color: #ffffff;
+      color: #007bff;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// Highlight Section
+.highlight {
+  margin: 2rem 0;
+
+  h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .productGridWrapper {
+    display: flex;
+    justify-content: center; // Posisi grid di tengah
+    padding: 1rem;
+  }
+
+  .productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    width: 80%; // Mengurangi lebar grid sekitar 20%
+    max-width: 1200px; // Batasi lebar maksimum agar tetap terlihat rapi di layar besar
+    margin: 0 auto; // Posisi di tengah jika parent container tidak mengatur justify
+  }
+}
+
+// Call-to-Action Section
+.cta {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-bottom: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+// Responsiveness
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .highlight h2,
+  .cta h2 {
+    font-size: 1.5rem;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr; // Satu kolom di layar kecil
+  }
+}
