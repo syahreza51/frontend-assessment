@@ -12,6 +12,7 @@ First, run the development server:
 
 ```bash
 npm run dev
+npm run mock-api
 # or
 yarn dev
 # or
