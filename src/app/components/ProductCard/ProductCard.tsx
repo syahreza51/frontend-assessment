@@ -21,7 +21,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className={styles.productCard}>
       <div className={styles.imageWrapper}>
-        <ImageWithBasePath src={product.images[0]} alt={product.name} />
+        <ImageWithBasePath
+          width={500}
+          height={500}
+          src={product.images[0]}
+          alt={product.name}
+        />
       </div>
       <h3 className={styles.productName}>{product.name}</h3>
       <p className={styles.productDescription}>{product.description}</p>

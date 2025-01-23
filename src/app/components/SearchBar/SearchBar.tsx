@@ -6,17 +6,11 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ onSearch }: SearchBarProps) => {
-  const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
     onSearch(event.target.value);
-  };
-
-  const handleSearch = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
   };
 
   return (

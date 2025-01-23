@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Breadcrumb from "@/app/components/Breadcrumb/Breadcrumb";
 import Skeleton from "@/app/components/Skeleton/Skeleton";
 import styles from "../product.module.scss";
+import ImageWithBasePath from "@/app/components/Image/Image";
 
 interface Product {
   id: string;
@@ -30,6 +31,7 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
+  const [mainImage, setMainImage] = useState<string>("");
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -42,6 +44,7 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
         notFound();
       } else {
         setProduct(data);
+        setMainImage(data.images[0]);
       }
       setLoading(false);
     };
@@ -63,17 +66,16 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
     return notFound();
   }
 
-  function changeImage(src: string) {
-    const mainImage = document.getElementById("mainImage") as HTMLImageElement;
-    mainImage.src = src;
-  }
+  const handleThumbnailClick = (src: string) => {
+    setMainImage(src);
+  };
 
   const handleIncrease = () => {
     setQuantity((prev) => prev + 1);
   };
 
   const handleDecrease = () => {
-    setQuantity((prev) => (prev > 1 ? prev - 1 : 1)); // Minimal 1
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,7 +83,7 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
     if (!isNaN(value) && value > 0) {
       setQuantity(value);
     } else {
-      setQuantity(1); // Default jika input kosong atau invalid
+      setQuantity(1);
     }
   };
 
@@ -104,20 +106,24 @@ const ProductDetail = ({ params }: { params: Promise<{ id: string }> }) => {
           <h2 className={styles.title}>Product Detail</h2>
           <div className={styles.productDetailContent}>
             <div className={styles.productImages}>
-              <img
+              <ImageWithBasePath
                 id="mainImage"
-                src={product.images[0]}
+                src={mainImage}
                 alt={product.name}
                 className={styles.mainImage}
+                width={500}
+                height={500}
               />
               <div className={styles.thumbnails}>
                 {product.images.slice(1).map((image, index) => (
-                  <img
+                  <ImageWithBasePath
                     key={index}
                     src={image}
                     alt={`Thumbnail ${index + 1}`}
                     className={styles.thumbnail}
-                    onClick={() => changeImage(image)}
+                    width={100}
+                    height={100}
+                    onClick={() => handleThumbnailClick(image)}
                   />
                 ))}
               </div>

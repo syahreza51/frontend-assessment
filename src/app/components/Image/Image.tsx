@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface Image {
   className?: string;
@@ -7,19 +8,21 @@ interface Image {
   height?: number;
   width?: number;
   id?: string;
+  onClick?: (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => void;
 }
 
 const ImageWithBasePath = (props: Image) => {
   const altText = String(props.alt);
   const fullSrc = `${props.src}`;
   return (
-    <img
+    <Image
+      id={props.id}
       className={props.className}
       src={fullSrc}
-      height={props.height}
       alt={altText}
       width={props.width}
-      id={props.id}
+      height={props.height}
+      onClick={props.onClick}
     />
   );
 };

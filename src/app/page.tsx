@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
 import { motion } from "framer-motion";
 import ProductCard from "@components/ProductCard/ProductCard";
-import Footer from "@components/Footer/Footer";
 import Skeleton from "./components/Skeleton/Skeleton";
 
 interface Product {
@@ -50,7 +49,6 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* Highlight Section */}
         <section className={styles.highlight}>
           <h2>Featured Products</h2>
           <div className={styles.productGrid}>
@@ -66,7 +64,6 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        {/* Call-to-Action Section */}
         <section className={styles.cta}>
           <h2>Ready to Explore?</h2>
           <p>Discover more and shop your favorite products now!</p>
