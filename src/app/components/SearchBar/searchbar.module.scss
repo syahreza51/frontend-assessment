@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 2rem; /* Tambahkan margin-bottom */
   padding: 0.75rem 1rem;
   background-color: #ffffff;
   border-radius: 2rem;
@@ -53,7 +53,9 @@
   border-radius: 50%;
   margin-left: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
     background-color: #0056b3;
@@ -61,9 +63,11 @@
   }
 }
 
+/* Responsiveness */
 @media (max-width: 768px) {
   .searchBar {
     padding: 0.5rem 0.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .input {
@@ -74,5 +78,24 @@
   .searchIcon {
     width: 2rem;
     height: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchBar {
+    flex-direction: column;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .input {
+    width: 88%;
+    margin-bottom: 0.5rem;
+  }
+
+  .searchIcon {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0;
   }
 }

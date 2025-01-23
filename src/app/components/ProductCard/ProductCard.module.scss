@@ -45,6 +45,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      text-align: center;
 
       .viewProduct {
         background-color: #ffffff;
@@ -52,12 +53,36 @@
         padding: 0.5rem 1.5rem;
         border-radius: 9999px;
         font-weight: bold;
+        font-size: 1rem;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition:
+          background-color 0.3s,
+          transform 0.2s;
 
         &:hover {
           background-color: #e5e7eb;
+          transform: scale(1.05);
         }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .buttonWrapper .viewProduct {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .buttonWrapper {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+      }
+
+      .buttonWrapper .viewProduct {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
       }
     }
   }
@@ -81,6 +106,11 @@
     align-items: center;
     margin-top: 1rem;
 
+    /* Responsiveness */
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+
     .price {
       font-size: 1.125rem;
       font-weight: bold;
@@ -94,11 +124,15 @@
       border-radius: 50px;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+      transition:
+        background-color 0.3s,
+        transform 0.2s,
+        box-shadow 0.2s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
 
       &:hover {
         background-color: #374151;
@@ -109,6 +143,22 @@
       &:active {
         transform: scale(0.98);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .addToCart {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .addToCart {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        border-radius: 40px;
       }
     }
   }

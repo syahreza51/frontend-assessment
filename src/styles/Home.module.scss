@@ -1,53 +1,103 @@
-// Container Styling
 .container {
+  box-sizing: border-box;
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-// Hero Section
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.25rem;
+  }
+}
+
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
   padding: 4rem 1rem;
   text-align: center;
   border-radius: 1rem;
+}
 
-  .heroContent {
-    max-width: 600px;
+.hero .heroContent {
+  max-width: 600px;
+}
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+.hero .heroContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
 
-    p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
-    }
+.hero .heroContent p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
 
-    .heroButton {
-      padding: 0.75rem 1.5rem;
-      background-color: #ffffff;
-      color: #007bff;
-      border: none;
-      border-radius: 0.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
+.hero .heroContent .heroButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #ffffff;
+  color: #007bff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-      &:hover {
-        background-color: #0056b3;
-        color: #ffffff;
-      }
-    }
+.hero .heroContent .heroButton:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .hero .heroContent p {
+    font-size: 1rem;
+  }
+
+  .hero .heroContent .heroButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 }
 
-// Highlight Section
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 0.5rem;
+  }
+
+  .hero .heroContent h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero .heroContent p {
+    font-size: 0.875rem;
+  }
+
+  .hero .heroContent .heroButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
 .highlight {
   margin: 2rem 0;
 
@@ -59,7 +109,7 @@
 
   .productGridWrapper {
     display: flex;
-    justify-content: center; // Posisi grid di tengah
+    justify-content: center;
     padding: 1rem;
   }
 
@@ -67,13 +117,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
-    width: 80%; // Mengurangi lebar grid sekitar 20%
-    max-width: 1200px; // Batasi lebar maksimum agar tetap terlihat rapi di layar besar
-    margin: 0 auto; // Posisi di tengah jika parent container tidak mengatur justify
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 
-// Call-to-Action Section
 .cta {
   text-align: center;
   padding: 3rem 1rem;
@@ -107,7 +156,6 @@
   }
 }
 
-// Responsiveness
 @media (max-width: 768px) {
   .heroContent h1 {
     font-size: 2rem;
@@ -123,6 +171,6 @@
   }
 
   .productGrid {
-    grid-template-columns: 1fr; // Satu kolom di layar kecil
+    grid-template-columns: 1fr;
   }
 }
