@@ -1,11 +1,18 @@
+# Next.js Project
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## 🌐 Live Demo
+Check out the live version of the project here: [Live Demo on Vercel](https://frontend-assessment-r42j.vercel.app/)
+
+---
 ## Getting Started
 
 First, run the development server:
 
 ```bash
 npm run dev
+npm run mock-api
 # or
 yarn dev
 # or
