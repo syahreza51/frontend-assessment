@@ -27,7 +27,7 @@ export default function ProductPage() {
   const [productsPerPage] = useState<number>(6);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://my-json-server.typicode.com/syahreza51/mock-api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

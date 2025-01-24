@@ -19,7 +19,9 @@ interface Product {
 }
 
 async function getProductData(id: string): Promise<Product | null> {
-  const res = await fetch(`http://localhost:5000/products/${id}`);
+  const res = await fetch(
+    `https://my-json-server.typicode.com/syahreza51/mock-api/products/${id}`
+  );
   if (!res.ok) {
     return null;
   }
